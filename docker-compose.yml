@@ -1,0 +1,13 @@
+services:
+  python-app:
+    build: .
+    container_name: sales_brief_simplon
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./script:/app/script
+      - ./queries:/app/queries
+    environment:
+      - PYTHONUNBUFFERED=1
+    entrypoint: /bin/bash ./script/entrypoint.sh
+    restart: no
